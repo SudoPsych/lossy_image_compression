@@ -1,0 +1,13 @@
+[package]
+name = "rpeg"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+csc411_image = "0.3.1"
+csc411_arith = "0.1.0"
+bitpack = { path = "../bitpack" }
+csc411_rpegio = "0.2.0"
+approx = "0.5.1"
