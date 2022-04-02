@@ -6,6 +6,11 @@ byte file into an image. The method of compression involves a discrete cosine tr
 into 4 bytes that are compacted together and output to a file. The decompression process reverses these steps
 and outputs an image that should look very similar to the original image before compression.
 
+## Original Image
+![fruit](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit.png?raw=true)
+## Image after compression and decompression
+![fruit_compressed](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit_compressed.png?raw=true)
+
 ## Usage
 ```bash
 rpeg -c [filename]
@@ -20,11 +25,6 @@ rpeg -d [filename]
 > csc411_rpegio
 > 
 > approx
-
-## Original Image
-![fruit](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit.png?raw=true)
-## Image after compression and decompression
-![fruit_compressed](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit_compressed.png?raw=true)
 
 # Details
 
