@@ -21,6 +21,11 @@ rpeg -c [filename]
 > 
 > approx
 
+## Original Image
+![fruit](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit.png?raw=true)
+## Image after compression and decompression
+![fruit_compressed](https://github.com/SudoPsych/lossy_image_compression/blob/main/fruit_compressed.png?raw=true)
+
 # Details
 
 ## Structure
