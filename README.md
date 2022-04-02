@@ -8,8 +8,8 @@ and outputs an image that should look very similar to the original image before 
 
 ## Usage
 ```bash
-rpeg -d [filename]
 rpeg -c [filename]
+rpeg -d [filename]
 ```
 ## Dependencies - Rust Crates
 
