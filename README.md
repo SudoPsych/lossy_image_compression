@@ -28,18 +28,6 @@ rpeg -d [filename]
 
 # Details
 
-## Structure
-The program is compiled in the rpeg directory, the main file in this directory
-contains the command line parsing and calls the compression and decompression
-functions that live in codec.rs. The codec file contains the implementation of
-compression and decompression along with the functions for getting and setting the
-pixel values. In addition, it contains functions for packing the image data into bytes and
-unpacking them from bytes. These packing functions invoke the functions created in the
-bitpack crate that are in charge of directly manipulating the values stored within the
-bytes. Functions in charge arithmetic are contained in the dct_trans file that lives within
-the rpeg source directory. These functions are imported into and invoked in the codec
-file for compression and decompression.
-
 ## Compression
 The compression function receives an image file and reads in the data into an
 RgbImage struct. A for loop begins and runs for enough iterations to loop over every
@@ -71,34 +59,4 @@ these values and the loop continues until all bytes have been exhausted. The ima
 written to standard output.
 ## Bitpacking
 
-> fiti and fitu:
-
-These functions check whether the given value can fit within the specified width.
-This is checked by shifting the bits to the left until the width specified is left aligned and
-then shifted back so the width is right aligned. The resulting value of these shifts will be
-equivalent to the input value if and only if the value fits inside of that width and will not
-be equivalent if and only if it does not fit in the specified width.
-
-> geti and getu:
-
-These functions retrieve a series of bits (specified by width) from the middle of a
-given word. This is done by shifting the relevant bits in the word to be left aligned. The
-lsb must be taken into account to do this properly. The bits are then shifted to the right
-until they are right aligned. Only the relevant bits in question will remain after these
-shifts and the bits will be in the correct spot to represent the number it is meant to. For
-unsigned integers and signed positive integers bits to the left of the value will be 0. For
-signed negative integers, the left most bit would be a one when left aligned and would
-thus fill in the left hand of the integer with 1’s as it was shifted right.
-
-> newi and newu:
-
-These functions input some string of bits into the middle of a given word and
-return a new, modified word. This is done by first clearing out the bits in the word where
-the relevant bits will be inserted. Some number of 1’s (equal to the width) are shifted to
-that position in the word using the lsb. This string is inverted so there are zeros in that
-position instead and 1’s elsewhere. This string is &’d with the word so all the values are
-copied over except for where the bits will be inserted. Then the relevant bits are shifted
-over to where they are to be inserted (again using the lsb) and an or operator is used to
-copy the modified word with the relevant bits. The result is returned wrapped in an
-option. If the value specified does not fit into the width specified, these bit shifts do not
-occur and a None option is returned.
+Utilizes bitwise operators to pack bits into binary 'codewords' and extract that data back out.
